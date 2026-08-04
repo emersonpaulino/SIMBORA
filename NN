@@ -1,0 +1,44 @@
+<!-- botão para abrir QR -->
+<button id="qrBtn" type="button">Compartilhar (QR)</button>
+
+<!-- modal simples para mostrar o QR -->
+<div id="qrModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); align-items:center; justify-content:center;">
+  <div style="background:#fff; padding:18px; border-radius:10px; max-width:360px; text-align:center;">
+    <p style="margin-bottom:8px">Escaneie para abrir esta lembrança</p>
+    <img id="qrImg" src="" alt="QR code" style="width:300px; height:300px; object-fit:contain; display:block; margin:0 auto 8px;" />
+    <div>
+      <a id="qrDownload" href="#" download="lembranca-qr.png" style="margin-right:8px">Baixar QR</a>
+      <button id="qrClose">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const qrBtn = document.getElementById('qrBtn');
+  const qrModal = document.getElementById('qrModal');
+  const qrImg = document.getElementById('qrImg');
+  const qrDownload = document.getElementById('qrDownload');
+  const qrClose = document.getElementById('qrClose');
+
+  function makeQRUrl(targetUrl){
+    // API pública que gera um PNG: ajustar size conforme desejar
+    return 'https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=' + encodeURIComponent(targetUrl);
+  }
+
+  qrBtn.addEventListener('click', () => {
+    const url = window.location.href; // quando a página estiver hospedada, será a URL pública
+    const qrUrl = makeQRUrl(url);
+    qrImg.src = qrUrl;
+    qrDownload.href = qrUrl;
+    qrModal.style.display = 'flex';
+  });
+
+  qrClose.addEventListener('click', () => {
+    qrModal.style.display = 'none';
+  });
+
+  // fechar clicando fora do conteúdo
+  qrModal.addEventListener('click', (e) => {
+    if(e.target === qrModal) qrModal.style.display = 'none';
+  });
+</script>
