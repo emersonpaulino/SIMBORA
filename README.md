@@ -80,3 +80,7 @@
   </script>
 </body>
 </html>
+<img
+    src="./foto.jpeg"
+    alt="Nossa lembrança"
+    loading="eager">
