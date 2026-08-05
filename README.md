@@ -39,7 +39,7 @@
 
     <main id="conteudo" aria-live="polite">
       <div class="card-image" aria-hidden="false">
-        <img src="foto.jpg" alt="Duas pessoas abraçadas, sorrindo, em uma lembrança pessoal" />
+        <img src="foto.jpg.jpeg" alt="Duas pessoas abraçadas, sorrindo, em uma lembrança pessoal" />
       </div>
 
       <div class="frase">Algumas lembranças nunca foram embora.</div>
@@ -80,7 +80,3 @@
   </script>
 </body>
 </html>
-<img
-    src="./foto.jpeg"
-    alt="Nossa lembrança"
-    loading="eager">
