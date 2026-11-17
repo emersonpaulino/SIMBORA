@@ -42,7 +42,7 @@
         <img src="foto.jpg.jpeg" alt="Duas pessoas abraçadas, sorrindo, em uma lembrança pessoal" />
       </div>
 
-      <div class="frase">Algumas lembranças nunca foram embora.</div>
+      <div class="frase">Vamos ficar somente entrando aqui e imaginando ou iremos criar coragem e realizar tudo o que um dia sonhamos?.</div>
 
       <div class="controls">
         <!-- Botão principal: abre o YouTube em nova aba -->
@@ -52,7 +52,7 @@
         <a id="openDirect" href="https://youtu.be/llMG9P6wqeA?is=YE7GhGKeWS3XsOCK" target="_blank" rel="noopener noreferrer" style="align-self:center;color:var(--muted);text-decoration:none;font-size:.95rem;">Abrir diretamente no YouTube</a>
       </div>
 
-      <div class="final">Às vezes a vida só precisava nos fazer crescer para nos apresentar novamente.</div>
+      <div class="final">Ate nos minimos detalhes te carrego cmg.</div>
       <div class="coracao" aria-hidden="true">♡</div>
     </main>
   </div>
@@ -63,7 +63,7 @@
       const conteudo = document.getElementById('conteudo');
       const playBtn = document.getElementById('playBtn');
 
-      const YT_URL = 'https://www.youtube.com/watch?v=n0NbNrYaNpg';
+      const YT_URL = 'https://youtu.be/llMG9P6wqeA?is=YE7GhGKeWS3XsOCK';
 
       function reveal(){ intro.classList.add('hidden'); setTimeout(()=>{ intro.style.display='none'; conteudo.classList.add('visible'); }, 800); }
       window.addEventListener('load', ()=> setTimeout(reveal, 2500));
