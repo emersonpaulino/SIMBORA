@@ -1,82 +1,325 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Algumas lembranças nunca foram embora</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
-  <style>
-    :root{--bg:#FAF8F5;--text:#2b2b2b;--muted:#666;--radius:18px;--card-shadow:0 20px 45px rgba(0,0,0,.12);--btn-shadow:0 10px 30px rgba(0,0,0,.08);}
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{background:var(--bg);display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;padding:1.25rem}
-    .wrap{width:100%;max-width:720px;text-align:center;position:relative}
-    #intro{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--bg);transition:opacity 1.8s ease;z-index:10;padding:2rem}
-    #intro.hidden{opacity:0;pointer-events:none}
-    #intro h1{font-family:"Cormorant Garamond",serif;font-size:2.125rem;font-weight:400;color:var(--text);line-height:1.25;text-align:center}
-    #conteudo{opacity:0;transition:opacity 1.8s ease;padding:1.5rem}
-    #conteudo.visible{opacity:1}
-    .card-image{width:100%;max-width:430px;margin:0 auto;border-radius:var(--radius);box-shadow:var(--card-shadow);overflow:hidden;height:min(72vh,650px);background:#ddd}
-    .card-image img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
-    .frase{margin-top:1.25rem;font-family:"Cormorant Garamond",serif;font-size:1.375rem;color:var(--text)}
-    .controls{margin-top:1.75rem;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
-    button.play-btn{padding:.9rem 1.75rem;border-radius:999px;border:none;background:#fff;font-size:1rem;cursor:pointer;box-shadow:var(--btn-shadow);transition:transform .18s}
-    button.play-btn:hover{transform:scale(1.03)}
-    button.play-btn:focus{outline:2px solid #333;outline-offset:2px}
-    .final{margin-top:1.25rem;font-size:.95rem;color:var(--muted);font-style:italic;opacity:.95;line-height:1.6}
-    .coracao{margin-top:1rem;font-size:1.25rem;opacity:.6}
-    @media (max-width:480px){#intro h1{font-size:1.625rem}.frase{font-size:1.125rem}.card-image{height:56vh}}
-    @media (prefers-reduced-motion: reduce){#intro,#conteudo{transition:none!important}}
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <div id="intro" role="dialog" aria-label="Introdução">
-      <h1>Algumas lembranças<br>nunca foram embora.</h1>
-    </div>
 
-    <main id="conteudo" aria-live="polite">
-      <div class="card-image" aria-hidden="false">
-        <img src="foto.jpg.jpeg" alt="Duas pessoas abraçadas, sorrindo, em uma lembrança pessoal" />
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="theme-color" content="#faf8f5" />
+
+  <title>Algumas lembranças nunca foram embora</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root {
+
+      --bg: #faf8f5;
+
+      --text: #2b2928;
+
+      --muted: #77716c;
+
+      --shadow: 0 20px 45px rgba(0,0,0,.12);
+
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { min-height: 100%; }
+
+    body {
+
+      margin: 0;
+
+      padding: 24px;
+
+      min-height: 100vh;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background: var(--bg);
+
+      color: var(--text);
+
+      font-family: Inter, system-ui, sans-serif;
+
+    }
+
+    .wrap {
+
+      width: 100%;
+
+      max-width: 680px;
+
+      text-align: center;
+
+      position: relative;
+
+    }
+
+    .intro {
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 5;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 32px;
+
+      background: var(--bg);
+
+      opacity: 1;
+
+      transition: opacity 1.5s ease;
+
+    }
+
+    .intro h1 {
+
+      max-width: 620px;
+
+      margin: 0;
+
+      font: 400 clamp(2rem, 6vw, 3.1rem)/1.22 "Cormorant Garamond", serif;
+
+    }
+
+    .intro.hidden {
+
+      opacity: 0;
+
+      pointer-events: none;
+
+    }
+
+    main {
+
+      opacity: 0;
+
+      transition: opacity 1.5s ease;
+
+      padding: 10px 0;
+
+    }
+
+    main.visible { opacity: 1; }
+
+    .photo {
+
+      width: 100%;
+
+      max-width: 430px;
+
+      margin: 0 auto;
+
+      border-radius: 18px;
+
+      overflow: hidden;
+
+      box-shadow: var(--shadow);
+
+      background: #e8e4df;
+
+    }
+
+    .photo img {
+
+      display: block;
+
+      width: 100%;
+
+      height: auto;
+
+    }
+
+    .caption {
+
+      margin: 22px 8px 0;
+
+      font: 400 clamp(1.45rem, 4.5vw, 1.9rem)/1.3 "Cormorant Garamond", serif;
+
+    }
+
+    .controls {
+
+      margin: 26px 0 0;
+
+      display: flex;
+
+      justify-content: center;
+
+    }
+
+    .play {
+
+      display: inline-block;
+
+      padding: 14px 25px;
+
+      border-radius: 999px;
+
+      background: #fff;
+
+      color: var(--text);
+
+      text-decoration: none;
+
+      font: 400 1rem Inter, sans-serif;
+
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+
+      transition: transform .2s ease;
+
+    }
+
+    .play:hover { transform: translateY(-2px); }
+
+    .heart {
+
+      margin-top: 20px;
+
+      color: #9b8f87;
+
+      font-size: 1.25rem;
+
+    }
+
+    @media (max-width: 480px) {
+
+      body { padding: 18px; }
+
+      .photo { max-width: 100%; }
+
+      .caption { margin-top: 18px; }
+
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *, *::before, *::after {
+
+        transition-duration: .01ms !important;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="intro" id="intro" role="dialog" aria-label="Mensagem de entrada">
+
+    <h1>Vamos ficar somente entrando aqui e imaginando ou iremos criar coragem e realizar tudo o que um dia sonhamos?</h1>
+
+  </div>
+
+  <div class="wrap">
+
+    <main id="content" aria-live="polite">
+
+      <div class="photo">
+
+        <img
+
+          src="foto.jpg.jpeg"
+
+          alt="Colagem de lembranças e fotografias de um casal"
+
+        />
+
       </div>
 
-      <div class="frase">Vamos ficar somente entrando aqui e imaginando ou iremos criar coragem e realizar tudo o que um dia sonhamos?.</div>
+      <p class="caption">até os mínimos detalhes trazem lembranças suas.🤍</p>
 
       <div class="controls">
-        <!-- Botão principal: abre o YouTube em nova aba -->
-        <button id="playBtn" class="play-btn" type="button" aria-label="Abrir música no YouTube">▶︎ Tocar nossa lembrança</button>
 
-        <!-- Link direto caso o usuário prefira abrir no YouTube manualmente -->
-        <a id="openDirect" href="https://youtu.be/llMG9P6wqeA?is=YE7GhGKeWS3XsOCK" target="_blank" rel="noopener noreferrer" style="align-self:center;color:var(--muted);text-decoration:none;font-size:.95rem;">Abrir diretamente no YouTube</a>
+        <a
+
+          class="play"
+
+          href="https://youtu.be/llMG9P6wqeA?is=kErI-GcTYDMx8kas"
+
+          target="_blank"
+
+          rel="noopener noreferrer"
+
+        >▶︎ Tocar nossa lembrança</a>
+
       </div>
 
-      <div class="final">Ate nos minimos detalhes te carrego cmg.</div>
-      <div class="coracao" aria-hidden="true">♡</div>
+      <div class="heart" aria-hidden="true">♡</div>
+
     </main>
+
   </div>
 
   <script>
-    (function(){
+
+    (() => {
+
       const intro = document.getElementById('intro');
-      const conteudo = document.getElementById('conteudo');
-      const playBtn = document.getElementById('playBtn');
 
-      const YT_URL = 'https://youtu.be/llMG9P6wqeA?is=YE7GhGKeWS3XsOCK';
+      const content = document.getElementById('content');
 
-      function reveal(){ intro.classList.add('hidden'); setTimeout(()=>{ intro.style.display='none'; conteudo.classList.add('visible'); }, 800); }
-      window.addEventListener('load', ()=> setTimeout(reveal, 2500));
-      const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if(reduced){ intro.style.display='none'; conteudo.classList.add('visible'); }
+      const reduceMotion = window.matchMedia(
 
-      // Abre o YouTube em nova aba ao clicar — essa interação vem do usuário (evita bloqueio de autoplay)
-      playBtn.addEventListener('click', () => {
-        window.open(YT_URL, '_blank', 'noopener,noreferrer');
-      });
+        '(prefers-reduced-motion: reduce)'
 
-      // Se quiser: ao pressionar ALT+clicar, abrir com start_radio etc. (opcional)
+      ).matches;
+
+      function reveal() {
+
+        intro.classList.add('hidden');
+
+        content.classList.add('visible');
+
+        window.setTimeout(() => {
+
+          intro.style.display = 'none';
+
+        }, reduceMotion ? 0 : 1500);
+
+      }
+
+      if (reduceMotion) {
+
+        intro.style.display = 'none';
+
+        content.classList.add('visible');
+
+      } else {
+
+        window.setTimeout(reveal, 2500);
+
+      }
+
     })();
+
   </script>
+
 </body>
+
 </html>
