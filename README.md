@@ -49,7 +49,7 @@
         <button id="playBtn" class="play-btn" type="button" aria-label="Abrir música no YouTube">▶︎ Tocar nossa lembrança</button>
 
         <!-- Link direto caso o usuário prefira abrir no YouTube manualmente -->
-        <a id="openDirect" href="https://www.youtube.com/watch?v=n0NbNrYaNpg" target="_blank" rel="noopener noreferrer" style="align-self:center;color:var(--muted);text-decoration:none;font-size:.95rem;">Abrir diretamente no YouTube</a>
+        <a id="openDirect" href="https://youtu.be/llMG9P6wqeA?is=YE7GhGKeWS3XsOCK" target="_blank" rel="noopener noreferrer" style="align-self:center;color:var(--muted);text-decoration:none;font-size:.95rem;">Abrir diretamente no YouTube</a>
       </div>
 
       <div class="final">Às vezes a vida só precisava nos fazer crescer para nos apresentar novamente.</div>
